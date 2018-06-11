@@ -1,0 +1,77 @@
+#logo {
+    height: 4em;
+}
+   
+footer {
+    position: relative;
+    color: #fff;
+    background: #333;
+    height: 180px;
+    padding: 2em;
+}
+
+main {
+    overflow: auto;
+    margin: 2em;
+    padding-bottom: 180px;
+    min-height: 67%;
+}
+
+.actor-list {
+    list-style-type: none;
+}
+
+#app {
+  min-height: 100%;
+}
+  
+form {
+    margin-bottom: 0!important;
+}
+
+#loadMore {
+    display: block;
+    margin: auto;
+}
+
+.overviewList {
+    list-style: none;
+    padding: 0!important;
+}
+
+nav {
+    background: #1a4e1b;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .container { 
+        padding: 0; 
+    }
+
+    main {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    h1, h2, h3, h4, h5, p {
+        text-align: center;
+    }
+
+    .navbar-brand {
+        margin: auto;
+    }
+
+    input, button, form{
+        width: 100%;
+    }
+
+    .navbar-toggler {
+        width: 2em;
+    }
+
+    .navbar-toggler-icon{
+      position: relative;
+      left: -8px;
+    }
+}
