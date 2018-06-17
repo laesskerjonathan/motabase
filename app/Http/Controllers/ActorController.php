@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Movie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ActorController extends Controller
 {
@@ -13,6 +14,9 @@ class ActorController extends Controller
         $name = $request->name;
         $first_name = explode(' ', $name)[0];
         $last_name = explode(' ', $name)[1];
+
+        Log::info('Getting Actor with name: '.$first_name.' '.$last_name);
+
         $actor = DB::connection('sakila')->table('actor')
         ->leftjoin('film_actor', 'film_actor.actor_id', '=', 'actor.actor_id')
         ->leftjoin('film', 'film.film_id', '=', 'film_actor.film_id')

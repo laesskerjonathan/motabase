@@ -23,9 +23,6 @@
             <li class="nav-item {{ Request::segment(1) === 'actors' ? 'active' : null }}">
               <a class="nav-link" href="/actors">Actors</a>
             </li>
-            <li class="nav-item {{ Request::segment(1) === 'watchlist' ? 'active' : null }}">
-              <a class="nav-link" href="/watchlist">Watchlist</a>
-            </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->

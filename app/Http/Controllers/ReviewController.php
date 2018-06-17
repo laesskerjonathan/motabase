@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Review;
+use Illuminate\Support\Facades\Log;
 
 class ReviewController extends Controller
 {
     public function submitReview(Request $request){
 
+        Log::info('Submitting Review');
 
         $this->validate($request, [
             'review' => 'required',

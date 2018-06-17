@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Movie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class MovieController extends Controller
 {
     public function getMovie(Request $request){
 
         $title = $request->title;
+
+
+        Log::info('Getting Movie with Title: '.$title);
+
         $movie = DB::connection('sakila')->table('film')
         ->leftjoin('film_actor', 'film.film_id', '=', 'film_actor.film_id')
         ->leftjoin('actor', 'film_actor.actor_id', '=', 'actor.actor_id')

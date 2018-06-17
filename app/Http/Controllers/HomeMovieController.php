@@ -5,10 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Movie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class HomeMovieController extends Controller
 {
     public function getMovies(){
+
+
+        Log::info('Getting Movies for Home-Screen');
+
         $movies = DB::connection('sakila')->table('film')
         ->leftjoin('film_actor', 'film.film_id', '=', 'film_actor.film_id')
         ->leftjoin('actor', 'film_actor.actor_id', '=', 'actor.actor_id')

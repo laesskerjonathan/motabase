@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Movie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class SearchController extends Controller
 {
     public function getMovies(Request $request){
 
         $search = $request->search;
+
+        Log::inof("Executing Search with terms: ".$search);
+
         $movies = DB::connection('sakila')->table('film')
         ->leftjoin('film_text', 'film_text.film_id', '=', 'film.film_id')
         ->where('film_text.description', 'LIKE', '%'.$search.'%')

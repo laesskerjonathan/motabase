@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Movie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class getActorsHome extends Controller
 {
@@ -21,6 +22,9 @@ class getActorsHome extends Controller
         } else {
             $limit = 5;
         }
+
+
+        Log::info('Getting Actors with Offset: '.$offset.', Limit '.$limit);
 
         $actors = DB::connection('sakila')->table('actor')
         ->leftjoin('film_actor', 'film_actor.actor_id', '=', 'actor.actor_id')
